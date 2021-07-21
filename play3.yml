@@ -1,0 +1,11 @@
+---
+
+ - hosts: all
+   become: yes
+
+   tasks:
+     - name: Get the FS utilization
+       command: 'df -h /boot'
+       register: dfoutput
+
+     - debug: var=dfoutput.stdout_lines
